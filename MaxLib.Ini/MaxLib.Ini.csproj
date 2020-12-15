@@ -1,7 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <Import Project="MaxLib.Ini.csproj.include" />
+
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
+    <PackageId>MaxLib.Ini</PackageId>
+    <Authors>garados007</Authors>
+    <Company>Max Brauer</Company>
+    <PackageDescription>
+      MaxLib.Ini is a small library to parse and create ini configuration files.
+    </PackageDescription>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/Garados007/MaxLib.Ini</RepositoryUrl>
   </PropertyGroup>
 
 </Project>
