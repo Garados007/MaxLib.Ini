@@ -1,0 +1,6 @@
+# Dotnet files
+bin
+obj
+TestResults
+# VSCode files
+.vscode
