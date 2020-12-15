@@ -81,6 +81,20 @@ namespace MaxLib.Ini
         public IniGroup GetGroup(string name)
             => GetGroups(name).FirstOrDefault();
 
+        public IniGroup this[string name]
+        {
+            get => GetGroup(name);
+            set
+            {
+                _ = value ?? throw new ArgumentNullException(nameof(value));
+                value.Name = name;
+                var index = groups.FindIndex(x => x.Name == name);
+                if (index < 0)
+                    Add(value);
+                else groups[index] = value;
+            }
+        }
+
         public void Set(IniGroup group)
         {
             _ = group ?? throw new ArgumentNullException(nameof(group));

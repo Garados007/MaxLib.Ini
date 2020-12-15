@@ -50,6 +50,23 @@ namespace MaxLib.Ini
             collection.GetOrAdd(key).String = value;
         }
 
+        public static bool GetBool<T>(this IIniCollection<T> collection, string key, bool @default)
+            where T : IIniGroupItem
+        {
+            _ = collection ?? throw new ArgumentNullException(nameof(collection));
+            _ = key ?? throw new ArgumentNullException(nameof(key));
+            var item = collection.Get(key);
+            return item != null ? item.Bool : @default;
+        }
+
+        public static void SetBool<T>(this IIniCollection<T> collection, string key, bool value)
+            where T : IIniGroupItem
+        {
+            _ = collection ?? throw new ArgumentNullException(nameof(collection));
+            _ = key ?? throw new ArgumentNullException(nameof(key));
+            collection.GetOrAdd(key).Bool = value;
+        }
+
         public static byte GetByte<T>(this IIniCollection<T> collection, string key, byte @default)
             where T : IIniGroupItem
         {
